@@ -10,6 +10,15 @@ Original file is located at
 
 
 """# New Section"""
+import subprocess
+import sys
+
+# Install matplotlib if not available
+try:
+    import matplotlib.pyplot as plt
+except ModuleNotFoundError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
+    import matplotlib.pyplot as plt  # Retry importing after installation
 
 import pandas as pd
 import numpy as np
@@ -184,3 +193,4 @@ plt.title("One-Class SVM: Anomalies in Leverage Ratio Over Time")
 plt.xlabel("Year")
 plt.ylabel("Leverage Ratio")
 plt.show()
+
